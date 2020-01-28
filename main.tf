@@ -1,9 +1,3 @@
-provider "aws" {
-  region  = var.aws_region
-  access_key = var.aws_access_key
-  secret_key = var.aws_secret_key
-}
-
 module "acm_request_certificate" {
   source                            = "app.terraform.io/nicethedevops/acm-request-certificate/aws"
   version                           = "0.4.0"
