@@ -2,69 +2,69 @@
 
 variable "environment" {
   description = "The stack environment (prod, dev, uat)"
-  type        = "string"
+  type        = string
 }
 
 variable "stack_id" {
   description = "The label identifier for the stack, example: web-stack-1. Please use the - (dash) to separate the logical parts of a complex noun"
-  type        = "string"
+  type        = string
 }
 
 variable "application_id" {
   description = "The label identifier for the application, example: my-magazine. Please use the - (dash) to separate the logical parts of a complex noun"
-  type        = "string"
+  type        = string
 }
 
 variable "vpc_id" {
   description = "The VPC id of the VPC in which the stack must be deployed"
-  type        = "string"
+  type        = string
 }
 
 # ACM nodule variables
 
 variable "acm_request_certificate_enabled" {
   description = "A boolean to enable or disable the provision of the ACM certificate and the relevant Route53 resources"
-  type        = "bool"
+  type        = bool
   default     = false
 }
 
 variable "acm_request_certificate_zone_name" {
   description = "The Route53 zone"
-  type        = "string"
+  type        = string
 }
 
 variable "acm_request_certificate_domain_name" {
   description = "The main domain name of the issued certificate"
-  type        = "string"
+  type        = string
 }
 
 variable "acm_request_certificate_process_domain_validation_options" {
   description = "Flag to enable/disable processing of the record to add to the DNS zone to complete certificate validation"
-  type        = "bool"
+  type        = bool
   default     = true
 }
 
 variable "acm_request_certificate_subject_alternative_names" {
   description = "A list of domains that should be SANs in the issued certificate"
-  type        = "list(string)"
+  type        = list(string)
   default     = []
 }
 
 variable "acm_request_certificate_ttl" {
   description = "The TTL of the record to add to the DNS zone to complete certificate validation"
-  type        = "string"
+  type        = string
   default     = "300"
 }
 
 variable "acm_request_certificate_validation_method" {
   description = "The TTL of the record to add to the DNS zone to complete certificate validation"
-  type        = "string"
+  type        = string
   default     = "DNS"
 }
 
 variable "acm_request_certificate_wait_for_certificate_issued" {
   description = "Whether to wait for the certificate to be issued by ACM (the certificate status changed from Pending Validation to Issued)"
-  type        = "bool"
+  type        = bool
   default     = false
 }
 
@@ -104,7 +104,7 @@ variable "rds_security_group_tags" {
 
 variable "rds_security_group_create" {
   description = "Whether to create security group and all rules"
-  type        = "bool"
+  type        = bool
   default     = true
 }
 
@@ -112,7 +112,7 @@ variable "rds_security_group_create" {
 
 variable "rds_kms_key_enabled" {
   description = "Set to false to prevent the module from creating any resources"
-  type        = "bool"
+  type        = bool
   default     = true
 }
 
@@ -124,7 +124,7 @@ variable "rds_kms_key_deletion_window_in_days" {
 
 variable "rds_kms_key_enable_key_rotation" {
   description = "Specifies whether key rotation is enabled"
-  type        = "bool"
+  type        = bool
   default     = true
 }
 
@@ -138,134 +138,134 @@ variable "rds_kms_key_tags" {
 
 variable "rds_engine" {
   description = "The database engine to use"
-  type        = "string"
+  type        = string
   default     = "postgres"
 }
 
 variable "rds_multi_az" {
   description = "Specifies if the RDS instance is multi-AZ"
-  type        = "bool"
+  type        = bool
   default     = false
 }
 
 variable "rds_create_db_instance" {
   description = "Whether to create a database instance"
-  type        = "bool"
+  type        = bool
   default     = true
 }
 
 variable "rds_create_db_option_group" {
   description = "Whether to create a option group"
-  type        = "bool"
+  type        = bool
   default     = true
 }
 
 variable "rds_create_db_parameter_group" {
   description = "Whether to create a parameter group"
-  type        = "bool"
+  type        = bool
   default     = true
 }
 
 variable "rds_create_db_subnet_group" {
   description = "Whether to create a subnet group"
-  type        = "bool"
+  type        = bool
   default     = true
 }
 
 variable "rds_engine_version" {
   description = "The engine version to use"
-  type        = "string"
+  type        = string
   default     = "9.6.9"
 }
 
 variable "rds_instance_class" {
   description = "The instance type of the RDS instance"
-  type        = "string"
+  type        = string
   default     = "db.t2.large"
 }
 
 variable "rds_allocated_storage" {
   description = "The allocated storage in gigabytes"
-  type        = "string"
+  type        = string
   default     = "10"
 }
 
 variable "rds_storage_encrypted" {
   description = "Specifies whether the DB instance is encrypted"
-  type        = "bool"
+  type        = bool
   default     = true
 }
 
 variable "rds_name" {
   description = "The DB name to create. If omitted, no database is created initially"
-  type        = "string"
+  type        = string
 }
 
 variable "rds_username" {
   description = "Username for the master DB user"
-  type        = "string"
+  type        = string
 }
 
 variable "rds_password" {
   description = "Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file"
-  type        = "string"
+  type        = string
 }
 
 variable "rds_port" {
   description = "The port on which the DB accepts connections"
-  type        = "string"
+  type        = string
   default     = "5432"
 }
 
 variable "rds_maintencance_window" {
   description = "The window to perform maintenance in. Syntax: 'ddd:hh24:mi-ddd:hh24:mi'. Eg: 'Mon:00:00-Mon:03:00'"
-  type        = "string"
+  type        = string
   default     = "Mon:00:00-Mon:03:00"
 }
 
 variable "rds_backup_window" {
   description = "The daily time range (in UTC) during which automated backups are created if they are enabled. Example: '09:46-10:16'. Must not overlap with maintenance_window"
-  type        = "string"
+  type        = string
   default     = "03:00-06:00"
 }
 
 variable "rds_backup_retention_period" {
   description = "The days to retain backups for"
-  type        = "string"
+  type        = string
   default     = "7"
 }
 
 variable "rds_major_engine_version" {
   description = "Specifies the major version of the engine that this option group should be associated with"
-  type        = "string"
+  type        = string
 }
 
 variable "rds_final_snapshot_identifier" {
   description = "The name of your final DB snapshot when this DB instance is deleted"
-  type        = "string"
+  type        = string
 }
 
 variable "rds_deletion_protection" {
   description = "The database can't be deleted when this value is set to true"
-  type        = "bool"
+  type        = bool
   default     = false
 }
 
 variable "rds_enabled_cloudwatch_logs_exports" {
   description = "List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on engine): alert, audit, error, general, listener, slowquery, trace, postgresql (PostgreSQL), upgrade (PostgreSQL)"
-  type        = "list(string)"
+  type        = list(string)
   default     = []
 }
 
 variable "rds_subnet_ids" {
   description = "A list of VPC subnet IDs"
-  type        = "list(string)"
+  type        = list(string)
   default     = []
 }
 
 variable "rds_family" {
   description = ""
-  type        = "string"
+  type        = string
   default     = "postgres9.6"
 }
 
@@ -279,7 +279,7 @@ variable "rds_tags" {
 
 variable "s3_log_storage_kms_key_enabled" {
   description = "Set to false to prevent the module from creating any resources"
-  type        = "bool"
+  type        = bool
   default     = true
 }
 
@@ -291,7 +291,7 @@ variable "s3_log_storage_kms_key_deletion_window_in_days" {
 
 variable "s3_log_storage_kms_key_enable_key_rotation" {
   description = "Specifies whether key rotation is enabled"
-  type        = "bool"
+  type        = bool
   default     = true
 }
 
@@ -305,18 +305,18 @@ variable "s3_log_storage_kms_key_tags" {
 
 variable "s3_log_storage_name" {
   description = "Name (e.g. app or db)"
-  type        = "string"
+  type        = string
 }
 
 variable "s3_log_storage_acl" {
   description = "The canned ACL to apply. We recommend log-delivery-write for compatibility with AWS services"
-  type        = "string"
+  type        = string
   default     = "log-delivery-write"
 }
 
 variable "s3_log_storage_enabled" {
   description = "Set to false to prevent the module from creating any resources"
-  type        = "bool"
+  type        = bool
   default     = true
 }
 
@@ -352,13 +352,13 @@ variable "s3_log_storage_noncurrent_version_transition_days" {
 
 variable "s3_log_storage_noncurrent_versioning_enabled" {
   description = "A state of versioning. Versioning is a means of keeping multiple variants of an object in the same bucket"
-  type        = "bool"
+  type        = bool
   default     = true
 }
 
 variable "s3_log_storage_sse_algorithm" {
   description = "The server-side encryption algorithm to use. Valid values are AES256 and aws:kms"
-  type        = "string"
+  type        = string
   default     = "aws:kms"
 }
 
@@ -372,103 +372,103 @@ variable "s3_log_storage_tags" {
 
 variable "alb_enabled" {
   description = "Set to false to prevent the module from creating anything"
-  type        = "string"
+  type        = string
   default     = true
 }
 
 variable "alb_enable_https_listener" {
   description = "If true, the HTTPS listener will be created"
-  type        = "string"
+  type        = string
   default     = true
 }
 
 variable "alb_enable_http_listener" {
   description = "If true, the HTTP listener will be created"
-  type        = "string"
+  type        = string
   default     = true
 }
 
 variable "alb_enable_redirect_http_to_https_listener" {
   description = "If true, the HTTP listener of HTTPS redirect will be created"
-  type        = "string"
+  type        = string
   default     = true
 }
 
 variable "alb_internal" {
   description = "If true, the LB will be internal"
-  type        = "string"
+  type        = string
   default     = false
 }
 
 variable "alb_idle_timeout" {
   description = "The time in seconds that the connection is allowed to be idle"
-  type        = "string"
+  type        = string
   default     = "60"
 }
 
 variable "alb_enable_deletion_protection" {
   description = "If true, deletion of the load balancer will be disabled via the AWS API"
-  type        = "string"
+  type        = string
   default     = true
 }
 
 variable "alb_enable_http2" {
   description = "Indicates whether HTTP/2 is enabled in application load balancers"
-  type        = "string"
+  type        = string
   default     = true
 }
 
 variable "alb_ip_address_type" {
   description = "The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 and dualstack"
-  type        = "string"
+  type        = string
   default     = "ipv4"
 }
 
 variable "alb_access_logs_prefix" {
   description = "The S3 bucket prefix. Logs are stored in the root if not configured"
-  type        = "string"
+  type        = string
   default     = ""
 }
 
 variable "alb_access_logs_enabled" {
   description = "Boolean to enable / disable access_logs"
-  type        = "string"
+  type        = string
   default     = true
 }
 
 variable "alb_ssl_policy" {
   description = "The name of the SSL Policy for the listener. Required if protocol is HTTPS"
-  type        = "string"
+  type        = string
   default     = "ELBSecurityPolicy-2016-08"
 }
 
 variable "alb_https_port" {
   description = "The HTTPS port"
-  type        = "string"
+  type        = string
   default     = "443"
 }
 
 variable "alb_http_port" {
   description = "The HTTP port"
-  type        = "string"
+  type        = string
   default     = "80"
 }
 
 variable "alb_fixed_response_content_type" {
   description = "The content type. Valid values are text/plain, text/css, text/html, application/javascript and application/json"
-  type        = "string"
+  type        = string
   default     = "text/plain"
 }
 
 variable "alb_fixed_response_message_body" {
   description = "The message body"
-  type        = "string"
+  type        = string
   default     = "OK"
 }
 
 variable "alb_fixed_response_status_code" {
   description = "The HTTP response code. Valid values are 2XX, 4XX, or 5XX"
-  type        = "string"
+  type        = string
   default     = "200"
 }
 
@@ -480,91 +480,91 @@ variable "alb_ingress_cidr_blocks" {
 
 variable "alb_target_group_port" {
   description = "The port on which targets receive traffic, unless overridden when registering a specific target"
-  type        = "string"
+  type        = string
   default     = "80"
 }
 
 variable "alb_target_group_protocol" {
   description = "The protocol to use for routing traffic to the targets. Should be one of HTTP or HTTPS"
-  type        = "string"
+  type        = string
   default     = "HTTP"
 }
 
 variable "alb_target_type" {
   description = "The type of target that you must specify when registering targets with this target group"
-  type        = "string"
+  type        = string
   default     = "ip"
 }
 
 variable "alb_deregistration_delay" {
   description = "The amount time for the load balancer to wait before changing the state of a deregistering target from draining to unused"
-  type        = "string"
+  type        = string
   default     = "300"
 }
 
 variable "alb_slow_start" {
   description = "The amount time for targets to warm up before the load balancer sends them a full share of requests"
-  type        = "string"
+  type        = string
   default     = "0"
 }
 
 variable "alb_health_check_path" {
   description = "The destination for the health check request"
-  type        = "string"
+  type        = string
   default     = "/healthcheck"
 }
 
 variable "alb_health_check_healthy_threshold" {
   description = "The number of consecutive health checks successes required before considering an unhealthy target healthy"
-  type        = "string"
+  type        = string
   default     = "3"
 }
 
 variable "alb_health_check_unhealthy_threshold" {
   description = "The number of consecutive health check failures required before considering the target unhealthy"
-  type        = "string"
+  type        = string
   default     = "3"
 }
 
 variable "alb_health_check_timeout" {
   description = "The amount of time, in seconds, during which no response means a failed health check"
-  type        = "string"
+  type        = string
   default     = "3"
 }
 
 variable "alb_health_check_interval" {
   description = "The approximate amount of time, in seconds, between health checks of an individual target"
-  type        = "string"
+  type        = string
   default     = "15"
 }
 
 variable "alb_health_check_matcher" {
   description = "The HTTP codes to use when checking for a successful response from a target"
-  type        = "string"
+  type        = string
   default     = "200"
 }
 
 variable "alb_health_check_port" {
   description = "The port to use to connect with the target"
-  type        = "string"
+  type        = string
   default     = "traffic-port"
 }
 
 variable "alb_health_check_protocol" {
   description = "The protocol to use to connect with the target"
-  type        = "string"
+  type        = string
   default     = "HTTP"
 }
 
 variable "alb_listener_rule_priority" {
   description = "The priority for the rule between 1 and 50000"
-  type        = "string"
+  type        = string
   default     = "50000"
 }
 
 variable "alb_listener_rule_condition_field" {
   description = "The name of the field. Must be one of path-pattern for path based routing or host-header for host based routing."
-  type        = "string"
+  type        = string
   default     = "path-pattern"
 }
 
@@ -600,7 +600,7 @@ variable "ec2_security_group_tags" {
 
 variable "ec2_security_group_create" {
   description = "Whether to create security group and all rules"
-  type        = "bool"
+  type        = bool
   default     = true
 }
 
@@ -628,19 +628,19 @@ variable "ec2_instance_profile_tags" {
 
 variable "ami_selector_names" {
   description = "List of names to fetch the AMI"
-  type        = "list(string)"
+  type        = list(string)
   default     = []
 }
 
 variable "ami_selector_virtualization_types" {
   description = "List of virtualization types (hvm, paravirtualized) to fetch the AMI"
-  type        = "list(string)"
+  type        = list(string)
   default     = ["hvm"]
 }
 
 variable "ami_selector_owners" {
   description = "List of owners ID to fetch the AMI"
-  type        = "list(string)"
+  type        = list(string)
   default     = []
 }
 
@@ -648,36 +648,36 @@ variable "ami_selector_owners" {
 
 variable "asg_instance_type" {
   description = "The size of instance to launch"
-  type        = "string"
+  type        = string
   default     = ""
 }
 
 variable "asg_health_check_type" {
   description = "Controls how health checking is done. Values are - EC2 and ELB"
-  type        = "string"
+  type        = string
   default     = "ELB"
 }
 
 variable "asg_min_size" {
   description = "The minimum size of the auto scale group"
-  type        = "string"
+  type        = string
   default     = "1"
 }
 
 variable "asg_max_size" {
   description = "The maximum size of the auto scale group"
-  type        = "string"
+  type        = string
   default     = "1"
 }
 
 variable "asg_desired_capacity" {
   description = "The number of Amazon EC2 instances that should be running in the group"
-  type        = "string"
+  type        = string
   default     = "1"
 }
 
 variable "asg_wait_for_capacity_timeout" {
   description = ""
-  type        = "string"
+  type        = string
   default     = "0"
 }
