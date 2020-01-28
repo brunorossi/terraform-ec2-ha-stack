@@ -214,7 +214,7 @@ module "backend_instances_asg" {
   instance_type             = var.asg_instance_type
   security_groups           = ["${module.ec2_security_group.this_security_group_id}"]
   iam_instance_profile      = var.ec2_instance_profile.instance_profile_id
-  asg_name                  = var.application-id}-${var.environment}-asg
+  asg_name                  = "${var.application-id}-${var.environment}-asg
   vpc_zone_identifier       = var.asg_subnets
   health_check_type         = var.asg_health_check_type
   min_size                  = var.asg_min_size
