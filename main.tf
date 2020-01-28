@@ -85,7 +85,6 @@ module "rds" {
   tags                            = var.rds_tags
 }
 
-/*
 module "s3_logs_storage_kms_key" {
   source                  = "app.terraform.io/nicethedevops/kms-key/aws"
   version                 = "0.4.0"
@@ -157,7 +156,7 @@ module "alb" {
   listener_rule_condition_field          = var.alb_listener_rule_condition_field
   listener_rule_condition_values         = var.alb_listener_rule_condition_values
   tags                                   = var.alb_tags
-
+}
 
 // select the most recent AMI for immutable infrastructure
 
@@ -225,4 +224,3 @@ module "backend_instances_asg" {
   target_group_arns         = ["${module.alb.alb_target_group_arn}"]
   tags                      = var.asg_tags
 }
-*/
