@@ -1,3 +1,9 @@
+provider "aws" {
+  region  = var.aws_region
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
+}
+
 module "acm_request_certificate" {
   source                            = "app.terraform.io/nicethedevops/acm-request-certificate/aws"
   version                           = "0.4.0"
@@ -218,9 +224,3 @@ module "backend_instances_asg" {
   target_group_arns         = ["${module.alb.alb_target_group_arn}"]
   tags                      = var.asg_tags
 }
-
-// @todo
-// s3 bucket
-// cloudfront ditro with multiple origins and behaviors
-// decouple alb from listeners and target groups
-// cloudwatch alarms to trigger the scaling
