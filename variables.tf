@@ -70,7 +70,7 @@ variable "acm_request_certificate_wait_for_certificate_issued" {
 
 variable "acm_request_certificate_tags" {
   description = "Additional tags (e.g. project_name=test, business_unit=IT)"
-  type        = "map(string)"
+  type        = map(string)
   default     = {}
 }
 
@@ -78,7 +78,7 @@ variable "acm_request_certificate_tags" {
 
 variable "ec2_ssh_key_pair_tags" {
   description = "Additional tags (e.g. project_name=test, business_unit=IT)"
-  type        = "map(string)"
+  type        = map(string)
   default     = {}
 }
 
@@ -86,19 +86,19 @@ variable "ec2_ssh_key_pair_tags" {
 
 variable "rds_security_group_ingress_with_cidr_blocks" {
   description = "List of computed ingress rules to create where 'cidr_blocks' is used"
-  type        = "list(map(string))"
+  type        = list(map(string))
   default     = []
 }
 
 variable "rds_security_group_egress_with_cidr_blocks" {
   description = "List of computed egress rules to create where 'cidr_blocks' is usedT"
-  type        = "list(map(string))"
+  type        = list(map(string))
   default     = []
 }
 
 variable "rds_security_group_tags" {
   description = "Additional tags (e.g. project_name=test, business_unit=IT)"
-  type        = "map(string)"
+  type        = map(string)
   default     = {}
 }
 
@@ -118,7 +118,7 @@ variable "rds_kms_key_enabled" {
 
 variable "rds_kms_key_deletion_window_in_days" {
   description = "Duration in days after which the key is deleted after destruction of the resource"
-  type        = "number"
+  type        = number
   default     = 30
 }
 
@@ -130,7 +130,7 @@ variable "rds_kms_key_enable_key_rotation" {
 
 variable "rds_kms_key_tags" {
   description = "Additional tags (e.g. project_name=test, business_unit=IT)"
-  type        = "map(string)"
+  type        = map(string)
   default     = {}
 }
 
@@ -271,7 +271,7 @@ variable "rds_family" {
 
 variable "rds_tags" {
   description = "Additional tags (e.g. project_name=test, business_unit=IT)"
-  type        = "map(string)"
+  type        = map(string)
   default     = {}
 }
 
@@ -285,7 +285,7 @@ variable "s3_log_storage_kms_key_enabled" {
 
 variable "s3_log_storage_kms_key_deletion_window_in_days" {
   description = "Duration in days after which the key is deleted after destruction of the resource"
-  type        = "number"
+  type        = number
   default     = 30
 }
 
@@ -297,7 +297,7 @@ variable "s3_log_storage_kms_key_enable_key_rotation" {
 
 variable "s3_log_storage_kms_key_tags" {
   description = "Additional tags (e.g. project_name=test, business_unit=IT)"
-  type        = "map(string)"
+  type        = map(string)
   default     = {}
 }
 
@@ -322,31 +322,31 @@ variable "s3_log_storage_enabled" {
 
 variable "s3_log_storage_standard_transition_days" {
   description = "Number of days to persist in the standard storage tier before moving to the infrequent access tier"
-  type        = "number"
+  type        = number
   default     = 30
 }
 
 variable "s3_log_storage_glacier_transition_days" {
   description = "Number of days after which to move the data to the glacier storage tier"
-  type        = "number"
+  type        = number
   default     = 60
 }
 
 variable "s3_log_storage_expiration_days" {
   description = "Number of days after which to expunge the objects"
-  type        = "number"
+  type        = number
   default     = 90
 }
 
 variable "s3_log_storage_noncurrent_version_expiration_days" {
   description = "Specifies when noncurrent object versions expire"
-  type        = "number"
+  type        = number
   default     = 90
 }
 
 variable "s3_log_storage_noncurrent_version_transition_days" {
   description = "Specifies when noncurrent object versions transitions"
-  type        = "number"
+  type        = number
   default     = 30
 }
 
@@ -364,7 +364,7 @@ variable "s3_log_storage_sse_algorithm" {
 
 variable "s3_log_storage_tags" {
   description = "Additional tags (e.g. project_name=test, business_unit=IT)"
-  type        = "map(string)"
+  type        = map(string)
   default     = {}
 }
 
@@ -474,7 +474,7 @@ variable "alb_fixed_response_status_code" {
 
 variable "alb_ingress_cidr_blocks" {
   description = "List of Ingress CIDR blocks"
-  type        = "list"
+  type        = list
   default     = ["0.0.0.0/0"]
 }
 
@@ -570,13 +570,13 @@ variable "alb_listener_rule_condition_field" {
 
 variable "alb_listener_rule_condition_values" {
   description = "The path patterns to match. A maximum of 1 can be defined"
-  type        = "list"
+  type        = list
   default     = ["/*"]
 }
 
 variable "alb_tags" {
   description = "Additional tags (e.g. project_name=test, business_unit=IT)"
-  type        = "map(string)"
+  type        = map(string)
   default     = {}
 }
 
@@ -584,17 +584,17 @@ variable "alb_tags" {
 
 variable "ec2_security_group_ingress_with_cidr_blocks" {
   description = "List of computed ingress rules to create where 'cidr_blocks' is used"
-  type        = "list(map(string))"
+  type        = list(map(string))
 }
 
 variable "ec2_security_group_egress_with_cidr_blocks" {
   description = "List of computed egress rules to create where 'cidr_blocks' is used"
-  type        = "list(map(string))"
+  type        = list(map(string))
 }
 
 variable "ec2_security_group_tags" {
   description = "Additional tags (e.g. project_name=test, business_unit=IT"
-  type        = "map(string)"
+  type        = map(string)
   default     = {}
 }
 
