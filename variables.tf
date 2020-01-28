@@ -1,5 +1,23 @@
 // basic variables
 
+
+variable "aws_region" {
+  description = "The AWS provider region"
+  type        = string
+}
+
+
+variable "aws_access_key" {
+  description = "The AWS access key"
+  type        = string
+}
+
+
+variable "aws_secret_key" {
+  description = "The AWS secret key"
+  type        = string
+}
+
 variable "environment" {
   description = "The stack environment (prod, dev, uat)"
   type        = string
