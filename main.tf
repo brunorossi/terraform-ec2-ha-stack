@@ -85,6 +85,7 @@ module "rds" {
   tags                            = var.rds_tags
 }
 
+/*
 module "s3_logs_storage_kms_key" {
   source                  = "app.terraform.io/nicethedevops/kms-key/aws"
   version                 = "0.4.0"
@@ -224,3 +225,4 @@ module "backend_instances_asg" {
   target_group_arns         = ["${module.alb.alb_target_group_arn}"]
   tags                      = var.asg_tags
 }
+*/
